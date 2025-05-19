@@ -67,7 +67,7 @@ This repository contains solutions to four SQL questions for a Data Analyst asse
 
 - Ensuring proper division and rounding for monetary values.
 
-##General Challenges
+## General Challenges
 
 ### **Data Type Conversions**:
 Converted amounts from kobo to naira by dividing by 100 (e.g., ROUND((... / 100.0)::numeric, 2)).
