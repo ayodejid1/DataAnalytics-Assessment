@@ -99,43 +99,36 @@ Data dump was loaded into PostgreSQL, and table relationships were validated bef
 
 # MySQL to PostgreSQL Migration Guide
 
-### Step 1: Stop and Remove Current MySQL Container
-
+### **Step 1: Stop and Remove Current MySQL Container**
 ```bash
 docker stop mysql_tmp
-docker rm mysql_tmp```
+docker rm mysql_tmp
 
-### Step 2: Run MySQL 5.7 Container (Compatible with pgloader)
-
+### **Step 2: Run MySQL 5.7 Container (Compatible with pgloader)**
 ```bash
-docker run --name mysql_tmp -e MYSQL_ROOT_PASSWORD=root -p 3307:3306 -d mysql:5.7```
+docker run --name mysql_tmp -e MYSQL_ROOT_PASSWORD=root -p 3307:3306 -d mysql:5.7
 
-### Step 3: Copy SQL Dump into MySQL Container
-
+### **Step 3: Copy SQL Dump into MySQL Container**
 ```bash
-docker cp "C:\Users\ayodeji.anibaba\Downloads\adashi_assessment\adashi_assessment.sql" mysql_tmp:/tmp/adashi_assessment.sql```
+docker cp "C:\Users\ayodeji.anibaba\Downloads\adashi_assessment\adashi_assessment.sql" mysql_tmp:/tmp/adashi_assessment.sql
 
-### Step 4: Create Database in MySQL Container
-
+### **Step 4: Create Database in MySQL Container**
 ```bash
-docker exec -it mysql_tmp mysql -uroot -proot -e "CREATE DATABASE adashi;"```
+docker exec -it mysql_tmp mysql -uroot -proot -e "CREATE DATABASE adashi;"
 
-### Step 5: Import SQL Dump into MySQL Database
-
+### **Step 5: Import SQL Dump into MySQL Database**
 ```bash
-docker exec -i mysql_tmp mysql -uroot -proot adashi < "C:\Users\ayodeji.anibaba\Downloads\adashi_assessment\adashi_assessment.sql" ```
+docker exec -i mysql_tmp mysql -uroot -proot adashi < "C:\Users\ayodeji.anibaba\Downloads\adashi_assessment\adashi_assessment.sql"
 
-### Step 6: Verify Tables Were Loaded
-
+### **Step 6: Verify Tables Were Loaded**
 ```bash
 docker exec -it mysql_tmp mysql -uroot -proot -e "SHOW TABLES IN adashi;" ```
 
-### Step 7: Run pgloader to Migrate Data to PostgreSQL
-
+### **Step 7: Run pgloader to Migrate Data to PostgreSQL**
 ```bash
 docker run --rm --network host dimitri/pgloader:latest pgloader \
   mysql://root:root@localhost:3307/adashi \
-  postgresql://postgres:yourpassword@host.docker.internal:5432/ayodeji ```
+  postgresql://postgres:yourpassword@host.docker.internal:5432/ayodeji
 
 *Replace `yourpassword` with your actual PostgreSQL password.*
 
