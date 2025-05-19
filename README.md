@@ -68,20 +68,21 @@ This repository contains solutions to four SQL questions for a Data Analyst asse
 - Ensuring proper division and rounding for monetary values.
 
 ##General Challenges
-Data Type Conversions:
+
+### **Data Type Conversions**:
 Converted amounts from kobo to naira by dividing by 100 (e.g., ROUND((... / 100.0)::numeric, 2)).
 
-Edge Cases:
+### **Edge Cases**:
 Addressed NULL values using COALESCE (e.g., default dates or zero deposits).
 
-Performance:
+### **Performance**:
 Optimized CTEs and joins to reduce query runtime.
 
-Tools & Setup
-PostgreSQL: Database management system.
+### **Tools & Setup**
+**PostgreSQL**: Database management system.
 
-Docker: Containerized environment for running PostgreSQL.
+**Docker**: Containerized environment for running PostgreSQL.
 
-pgAdmin4: GUI for query development and testing.
+**pgAdmin4**: GUI for query development and testing.
 
 Data dump was loaded into PostgreSQL, and table relationships were validated before query design.
