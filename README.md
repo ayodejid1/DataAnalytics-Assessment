@@ -99,7 +99,7 @@ Data dump was loaded into PostgreSQL, and table relationships were validated bef
 
 # MySQL to PostgreSQL Migration Guide
 
-## Step 1: Stop and Remove Current MySQL Container
+### Step 1: Stop and Remove Current MySQL Container
 ```bash
 docker stop mysql_tmp
 docker rm mysql_tmp
