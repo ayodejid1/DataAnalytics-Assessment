@@ -132,9 +132,3 @@ docker run --rm --network host dimitri/pgloader:latest pgloader \
 
 *Replace `yourpassword` with your actual PostgreSQL password.*
 
-### Why Use MySQL 5.7?
-
-MySQL 5.7 defaults to `mysql_native_password` authentication, which pgloader supports fully, avoiding the “unsupported authentication” error encountered with MySQL 8+.
-
-
-
